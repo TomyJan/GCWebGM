@@ -53,7 +53,7 @@ class TargetServer {
 
     async getInfo() {
         showMessage(langData.gettingServerInfo, 5000)
-        return fetch(`/status/server`, this.proxyParam)
+        return fetch(this.url + `/status/server`, this.proxyParam)
             .then(p => p.json()).then(data => {
                 console.log(data)
                 showMessage(langData.getServerInfoSuccess)
@@ -76,7 +76,7 @@ class TargetServer {
 
     async testCommandPlugin() {
         const that = this
-        return fetch(`/opencommand/api`, this.buildPostParam({
+        return fetch(this.url + `/opencommand/api`, this.buildPostParam({
             action: 'ping'
         })).then(p => p.json()).then(data => {
             if (!data?.retcode) throw new Error()
@@ -97,7 +97,7 @@ class TargetServer {
     /** @param { number } uid */
     async sendVerifycode(uid) {
         const that = this
-        return fetch(`/opencommand/api`, this.buildPostParam({
+        return fetch(this.url + `/opencommand/api`, this.buildPostParam({
             action: 'sendCode',
             data: uid
         })).then(p => p.json()).then(data => {
@@ -132,7 +132,7 @@ class TargetServer {
     /** @param { number } code */
     async checkVerifycode(code) {
         const that = this
-        return fetch(`/opencommand/api`, this.buildPostParam({
+        return fetch(this.url + `/opencommand/api`, this.buildPostParam({
             action: 'verify',
             token: that.token,
             data: code
@@ -164,7 +164,7 @@ class TargetServer {
         }
         const that = this
 
-        const req = async preCommand => fetch(`/opencommand/api`, this.buildPostParam({
+        const req = async preCommand => fetch(this.url + `/opencommand/api`, this.buildPostParam({
             action: 'command',
             token: that.token,
             data: preCommand

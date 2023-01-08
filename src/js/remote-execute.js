@@ -63,6 +63,7 @@ class TargetServer {
                 showMessage(langData.cannotConnectServer)
                 remoteExecuteStatusElement.innerHTML = langData.cannotConnectServer
                 serverVersionElement.innerText = langData.getServerInfoFail
+                playerCountElement.innerText = ""
             })
     }
 

@@ -48,13 +48,8 @@ The script read the `GET` params in URL, you can provide some default param to t
 ## Deploy
 
 1. `git -clone`
-
 2. `cd ./src`, `npm install`, `npm run build` (Use [Vite](https://github.com/vitejs/vite))
-
-3. Configure `Nginx`, reverse proxy `/opencommand` `/status`, specify the target forwarding server through `Header/reqip`
-   
-4. `cd ./api` `npm start`
-   
+3. `cd ./api` `npm start`
 5. Configure `Nginx`, reverse proxy `/api`, forward the requests to `http://127.0.0.1:1919`
 
 ## Build & Update Data

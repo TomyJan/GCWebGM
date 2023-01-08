@@ -23,10 +23,6 @@ class TargetServer {
         this.url = url
         this.proxyParam = {
             cache: 'no-cache',
-            // mode: "no-cors",
-            headers: {
-                'reqip': url
-            }
         }
         this.uid = servers[url]?.uid ?? ''
         this.token = servers[url]?.token ?? ''
@@ -44,10 +40,6 @@ class TargetServer {
         return {
             method: 'post',
             body: JSON.stringify(data),
-            headers: {
-                'reqip': this.url,
-                'Content-Type': 'application/json'
-            }
         }
     }
 

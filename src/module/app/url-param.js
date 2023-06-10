@@ -1,9 +1,9 @@
-import { commandVersionSelectElement, initCommand } from "./command-loader.js"
-import { menu } from "./command-menu.js"
+import { commandVersionSelectElement, initCommand } from "../command/command-loader.js"
+import { menu } from "../command/command-menu.js"
 import { config, importedList } from "./init.js"
 import { initLang, langData } from "./lang-loader.js"
-import { server, setServer } from "./remote-execute.js"
-import { showMessage } from "./ui.js"
+import { server, setServer } from "../remote/remote-execute.js"
+import { showMessage } from "../ui/ui.js"
 
 export const urlParams = new URL(location.href).searchParams
 urlParams.forEach((value, key) => {
@@ -25,7 +25,7 @@ urlParams.forEach((value, key) => {
             initCommand(config.commandVersion)
             break
         case 'version':
-            if (!['1.2.1', '1.4.2', 'GM'].includes(value)) break
+            if (!['1.2.1', '1.4.2', '1.6.1', 'GM'].includes(value)) break
             commandVersionSelectElement.value = value
             initCommand(value)
             break
